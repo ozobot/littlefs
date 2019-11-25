@@ -84,6 +84,7 @@ enum lfs_error {
     LFS_ERR_NOMEM       = -12,  // No more memory available
     LFS_ERR_NOATTR      = -61,  // No data/attr available
     LFS_ERR_NAMETOOLONG = -36,  // File name too long
+    LFS_ASSERT       = -128,
 };
 
 // File types
@@ -627,6 +628,9 @@ lfs_ssize_t lfs_fs_size(lfs_t *lfs);
 //
 // Returns a negative error code on failure.
 int lfs_fs_traverse(lfs_t *lfs, int (*cb)(void*, lfs_block_t), void *data);
+
+// Fill free blocks lookup table
+int lfs_find_free_blocks(lfs_t *lfs);
 
 #ifdef LFS_MIGRATE
 // Attempts to migrate a previous version of littlefs

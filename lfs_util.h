@@ -79,7 +79,8 @@ extern "C"
 
 // Runtime assertions
 #ifndef LFS_NO_ASSERT
-#define LFS_ASSERT(test) assert(test)
+// #define LFS_ASSERT(test) assert(test)
+#define LFS_ASSERT(test) if(!(test)){ return LFS_ASSERT; }
 #else
 #define LFS_ASSERT(test)
 #endif
