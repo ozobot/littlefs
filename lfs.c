@@ -672,8 +672,9 @@ int lfs_find_free_blocks(lfs_t *lfs){
   int err = lfs_fs_rawtraverse(lfs, lfs_alloc_lookahead, lfs, true);
   if (err) {
     lfs_alloc_drop(lfs);
-    return err;
   }
+
+  return err;
 }
 #endif
 
